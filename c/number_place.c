@@ -20,13 +20,13 @@ int phone_number_insert(struct phone_number **phone, char *number, char *place)
 {
     *phone = (struct phone_number*)malloc(sizeof(struct phone_number));
 
-    if (strlen(number) == 1) {
+    if (strlen(number) == 0) {
         (*phone)->flag = 1;
         strcpy((*phone)->place, place);
         return 0;
     }
 
-    return phone_number_insert(&(*phone)->number[number[1]-'0'], number+1, place);
+    return phone_number_insert(&(*phone)->number[number[0]-'0'], number+1, place);
 }
 
 
@@ -41,7 +41,7 @@ int phone_number_find(struct phone_number *phone, char *number)
         return 0;
     }
 
-    return phone_number_find(phone->number[number[1] - '0'], number+1);
+    return phone_number_find(phone->number[number[0] - '0'], number+1);
 }
 
 
