@@ -3,6 +3,11 @@
  *
  *      Author: Nine
  */
+/*
+ * netease question
+ * input the phone number location rule like: 1234xxxxxxx guangzhou, it means the guangzhou phone number prefix is 1234
+ * then input the phone number 12341234567, if the number has location, printf the place, if not ,print unkonwn.
+ */
 
 #include <stdio.h>
 #include <string.h>
