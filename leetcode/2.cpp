@@ -18,6 +18,7 @@ using namespace std;
  * };
  */
 
+// 数字链表相加，大数相加
 
 class Solution {
 public:

@@ -1,5 +1,5 @@
 /*
- * two_sum.c
+  * 不重复的字符串.c
  *
  *      Author: Nine
  */
@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <cstring>
 using namespace std;
+
+// 用滑动窗口去做，一旦出现重复的，移动窗口左边，知道没有重复
 
 class Solution {
 public:
