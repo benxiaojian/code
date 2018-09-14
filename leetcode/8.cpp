@@ -41,23 +41,17 @@ private:
 
     const char *find_first_number(const char *str, int *plus_or_minus, int str_len)
     {
-        for (int i=0; i<str_len; ++i) {
-            if (str[i] == '+') {
-                *plus_or_minus = 1;
-                return str + i + 1;
-            } else if (str[i] == '-'){
-                *plus_or_minus = -1;
-                return str + i + 1;
-            } else if (isdigit(str[i])) {
-                return str + i;
-            } else if (str[i] == ' ') {
-                continue;
-            } else {
-                return NULL;
-            }
+        int i = 0;
+        while (str[i] == ' ') {
+            i++;
         }
 
-        return NULL;
+        if (str[i] == '+' || str[i] == '-') {
+            *plus_or_minus = (str[i] == '+') ? 1 : -1;
+            i++;
+        }
+
+        return str + i;
     }
 
     int getNumber(const char *str, int plus_or_minus)
@@ -79,9 +73,7 @@ public:
     int myAtoi(string str) {
         const char *number_string = str.c_str();
         const char *first_number  = NULL;
-        bool find_number = false;
         int res = 0;
-        bool find_plus_or_minus = false;
         int plus_or_minus = 1;
 
         first_number = find_first_number(number_string, &plus_or_minus, str.length());
