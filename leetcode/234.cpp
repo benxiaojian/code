@@ -12,6 +12,7 @@
 using namespace std;
 
 // 要求O(n)的时间和O(1)的空间
+// 用函数来实现指针的回退
 
 
 //Definition for singly-linked list.
