@@ -19,7 +19,7 @@ public:
         int len1 = word1.size();
         int len2 = word2.size();
 
-        vector<vector<int>> dp(len1+1, vector<int>(len2+1, 0));
+        vector<vector<int> > dp(len1+1, vector<int>(len2+1, 0));
         for(int i=0; i<=len1; ++i) {
             dp[i][0] = i;
         }
@@ -33,12 +33,20 @@ public:
                 if (word1[i-1] == word2[j-1]) {
                     dp[i][j] = dp[i-1][j-1];
                 } else {
-                    dp[i][j] = 1 + min(min(dp[i-1][j-1], dp[i][j-1]), dp[i-1][j]); // 替换，删除，增加
-                    // dp[i][j] = 1 + min(dp[i][j-1]), dp[i-1][j]); // 删除，增加
+                    //dp[i][j] = 1 + min(min(dp[i-1][j-1], dp[i][j-1]), dp[i-1][j]); // 替换，删除，增加
+                    dp[i][j] = 1 + min(dp[i][j-1], dp[i-1][j]); // 删除，增加
                 }
             }
         }
 
-        return dp[len1][len2];
+        return dp[len1][len2] / 2;
     }
 };
+
+
+
+int main()
+{
+    Solution s;
+    cout << s.minDistance("abcdf", "cdfab");
+}

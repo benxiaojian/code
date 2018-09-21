@@ -73,7 +73,6 @@ public:
     int myAtoi(string str) {
         const char *number_string = str.c_str();
         const char *first_number  = NULL;
-        int res = 0;
         int plus_or_minus = 1;
 
         first_number = find_first_number(number_string, &plus_or_minus, str.length());
@@ -81,8 +80,7 @@ public:
             return 0;
         }
 
-        res = getNumber(first_number, plus_or_minus);
-        return res;
+        return getNumber(first_number, plus_or_minus);
     }
 };
 
